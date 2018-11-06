@@ -2,12 +2,15 @@
 # Uses textract
 # Uses nltk
 # uses punkt
+# uses python's built-in CSV
 
 import PyPDF2
 import textract
 
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+import json
+
 
 #write a for-loop to open many files
 filename = 'my-test.pdf'
@@ -58,5 +61,12 @@ my_list = []
 for word in keywords:
   word = str(word)
   my_list.append(word)
+
+with open("my_data.json", 'w') as outfile:
+  json.dump(my_list, outfile)
+# # Write to CSV
+# with open("output.csv", "w") as csvFile:
+#   writer = csv.writer(csvFile, delimiter=",", quotechar="'")
+#   writer.writerows(my_list)
 
 print(my_list)
