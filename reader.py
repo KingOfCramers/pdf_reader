@@ -52,5 +52,11 @@ stop_words = stopwords.words('english')
 
 #We create a list comprehension which only returns a list of words #that are NOT IN stop_words and NOT IN punctuations.
 keywords = [word for word in tokens if not word in stop_words and not word in punctuations]
+my_list = []
 
-print(keywords)
+# convert keywords to utf-8
+for word in keywords:
+  word = str(word)
+  my_list.append(word)
+
+print(my_list)
